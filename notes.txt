@@ -1,0 +1,32 @@
+Day 1:
+-----
+http://collabedit.com/cadyp
+
+SPA - Single Page Apps
+MPA - Multi Page Apps
+
+Why Angular
+-----------
+Performance
+Community
+Backed google
+Dev tool
+
+Versions
+--------
+AngularJS (1.x)
+
+
+Angular2 - complete rewrite
+Angular4
+Angular5
+Angular6
+    Elements
+    Angular material
+    ng cli
+Angular7
+    Elements
+    ng cli
+    Angular material
+    virtual lists
+    

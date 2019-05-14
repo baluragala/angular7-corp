@@ -1,0 +1,18 @@
+install typescript
+------------------
+npm install typescript -g
+
+
+to create tsonfig file
+---------------------
+tsc --init
+
+
+to start tsc in watch mode
+--------------------------
+tsc -w
+
+
+to install @angular/cli
+-----------------------
+npm install @angular/cli -g
