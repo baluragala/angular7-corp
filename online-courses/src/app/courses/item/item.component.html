@@ -1,0 +1,13 @@
+<div
+  [ngClass]="{ item: true, even: extras.even, odd: !extras.even }"
+  [ngStyle]="course.isPublished == true ? styles1 : styles2"
+  (click)="onItemClicked()"
+>
+  <h3>{{ extras.index + 1 }}.{{ course.title }}</h3>
+  <h4>{{ course.author }}</h4>
+  <button *ngIf="course.isPublished == true; else comingSoon">Subscribe</button>
+</div>
+
+<ng-template #comingSoon>
+  <h3>Coming Soon...</h3>
+</ng-template>

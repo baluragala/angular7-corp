@@ -1,0 +1,15 @@
+.item {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: Helvetica;
+    padding: 10px;
+    border: 1px solid brown;
+    margin: 5px;
+}
+
+.even {
+    background-color: lavenderblush;
+}
+
+.odd {
+    background-color: lightgoldenrodyellow;
+}
