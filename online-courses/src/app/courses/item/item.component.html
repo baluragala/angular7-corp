@@ -3,8 +3,12 @@
   [ngStyle]="course.isPublished == true ? styles1 : styles2"
   (click)="onItemClicked()"
 >
-  <h3>{{ extras.index + 1 }}.{{ course.title }}</h3>
+  <h3>{{ extras.index + 1 }}.{{ course.title | uppercase }}</h3>
   <h4>{{ course.author }}</h4>
+  <h2>{{ course.price | discount: 5 | currency: "GBP" }}</h2>
+  <pre>
+    {{ course | json }}
+  </pre>
   <button *ngIf="course.isPublished == true; else comingSoon">Subscribe</button>
 </div>
 

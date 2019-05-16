@@ -1,0 +1,68 @@
+<div>
+  <form #f="ngForm" (submit)="onSaveCourse(f)">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      name="title"
+      [(ngModel)]="title"
+      required
+      minlength="5"
+      maxlength="30"
+      #titleRef="ngModel"
+    />
+    <!-- {{ titleRef.dirty }}
+    {{ titleRef.errors | json }} -->
+    <p *ngIf="titleRef.dirty && titleRef.errors?.required" class="error">
+      Title is required
+    </p>
+    <p *ngIf="titleRef.dirty && titleRef.errors?.minlength" class="error">
+      Required atleast 5 chars
+    </p>
+    <div ngModelGroup="author">
+      <label for="author">Author First</label>
+      <input
+        type="text"
+        name="first"
+        [(ngModel)]="author.first"
+        required
+        #authorRef="ngModel"
+      />
+      <label for="author">Author Last</label>
+      <input
+        type="text"
+        name="last"
+        [(ngModel)]="author.last"
+        required
+        #authorRef="ngModel"
+      />
+    </div>
+
+    <!-- <p *ngIf="authorRef.dirty && authorRef.errors?.required" class="error">
+      Author is required
+    </p> -->
+    <label for="isPublished">isPublished</label>
+    <input
+      type="checkbox"
+      name="isPublished"
+      [(ngModel)]="isPublished"
+      required
+      #isPublishedRef="ngModel"
+    />
+
+    <p
+      *ngIf="isPublishedRef.dirty && isPublishedRef.errors?.required"
+      class="error"
+    >
+      isPublished is required
+    </p>
+
+    <label for="category">Category</label>
+    <select name="category" [(ngModel)]="category">
+      <option value="Programming">Programming</option>
+      <option value="Web">Web</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Others">Others</option>
+    </select>
+    <input type="submit" value="Save" />
+  </form>
+</div>
