@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { Course } from "../course.interface";
+import { CourseService } from "../course.service";
+import { SERVICE } from "../tokens";
 
 @Component({
   selector: "oca-list",
@@ -8,35 +10,20 @@ import { Course } from "../course.interface";
 })
 export class ListComponent implements OnInit {
   activeCourse: string;
-  courses: Array<Course> = [
-    {
-      title: "Fullstack web dev",
-      author: "Kelly Case",
-      price: 200,
-      isPublished: true
-    },
-    {
-      title: "Frontend web dev",
-      author: "Kelly Case",
-      price: 200,
-      isPublished: false
-    },
-    {
-      title: "Data Sciene",
-      author: "Kelly Case",
-      price: 200,
-      isPublished: true
-    },
-    {
-      title: "Computer Vision",
-      author: "Kelly Case",
-      price: 200,
-      isPublished: true
-    }
-  ];
-  constructor() {}
+  courses: Array<Course>;
 
-  ngOnInit() {}
+  constructor(
+    private courseService: CourseService,
+    @Inject("API_KEY") private apiKey: string,
+    @Inject(SERVICE) private service: any
+  ) {
+    console.log(courseService, apiKey, service);
+  }
+
+  ngOnInit() {
+    // let s = new CourseService();
+    this.courses = this.courseService.getCourses();
+  }
 
   onCourseActive(course: Course) {
     this.activeCourse = course.title;
